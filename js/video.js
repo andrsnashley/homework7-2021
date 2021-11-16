@@ -12,7 +12,7 @@ document.querySelector("#play").addEventListener("click", function() {
 	let slider = document.getElementById("slider");
 	let output = document.getElementById("volume");
 
-	output.innerHTML = slider.value;
+	output.innerHTML = slider.value + "%";
   	volume = slider.value / 100;
 	video.volume = volume;
 
@@ -59,12 +59,12 @@ document.querySelector("#mute").addEventListener("click", function() {
 	let mute = document.getElementById("mute");
 	if (mute.innerHTML == "Mute") {
 		mute.innerHTML = "Unmute";
+		video.muted = true;
 	}
 	else if (mute.innerHTML == "Unmute") {
 		mute.innerHTML = "Mute";
+		video.muted = false;
 	}
-	volume = 0;
-	video.volume = volume;
 });
 
 document.querySelector("#slider").addEventListener("input", function() {
@@ -72,7 +72,7 @@ document.querySelector("#slider").addEventListener("input", function() {
 	let slider = document.getElementById("slider");
 	let output = document.getElementById("volume");
 
-	output.innerHTML = slider.value;
+	output.innerHTML = slider.value + "%";
 	volume = slider.value / 100;
 	console.log(volume);
 
